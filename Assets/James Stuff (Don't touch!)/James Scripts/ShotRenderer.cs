@@ -24,8 +24,8 @@ public class ShotRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartPosition = transform.position;
-        StartRotation = Vector3.forward;
+        StartPosition = Vector3.zero;
+        StartRotation = transform.forward;
 
         MyLineRenderer.SetPosition(0,StartPosition);
 
@@ -52,7 +52,7 @@ public class ShotRenderer : MonoBehaviour
             position += direction * maxStepDistance;
         }
 
-        MyLineRenderer.SetPosition((MyLineRenderer.positionCount - reflectionsRemaining), position);
+        MyLineRenderer.SetPosition((MyLineRenderer.positionCount - reflectionsRemaining), transform.InverseTransformPoint( position));
 
         DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
