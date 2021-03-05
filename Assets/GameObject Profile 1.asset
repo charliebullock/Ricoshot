@@ -16,7 +16,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.893
+    m_Value: 0.5
     min: 0
     max: 1
 --- !u!114 &11400000
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Value: {x: 1, y: 0.9901449, z: 0.8712419, w: -1}
   shadowsStart:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.3
     min: 0
   shadowsEnd:
     m_OverrideState: 0
