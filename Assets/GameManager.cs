@@ -12,18 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshPro textSpinning3;
     [SerializeField]
-    private GameObject[] enemies;
-    [SerializeField]
     private GameObject[] levels;
     [SerializeField]
     private float speed;
+    public int enemiesDefeated;
 
     void Start()
     {
         GenerateLevel(true); 
     }
 
-    public void GenerateLevel(bool generate)
+    private void GenerateLevel(bool generate)
     {
         if (generate)
         {
@@ -35,9 +34,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        enemiesDefeated = 0;
+        GenerateLevel(false);
+        GenerateLevel(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        textSpinning1.text = textSpinning2.text = textSpinning3.text = "Enemies Destroyed" + enemiesDefeated;
         transform.Rotate(Vector3.back * Time.deltaTime * speed);
     }
 }

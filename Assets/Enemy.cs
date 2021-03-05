@@ -7,26 +7,52 @@ public class Enemy : MonoBehaviour
 {
     //Variables
     #region variables    
-    [SerializeField]
-    private bool bIsFastEnemy;
-    public float fEnemySpeed;
-    [SerializeField]
-    private Transform positionalReset;
+
+    public float enemySpeed;
     private GameObject player;
+    private GameManager gM;
     #endregion variables  
 
     //Start function for assigning variable values and setting a navmesh up
     private void Start()
     {
+        gM = FindObjectOfType<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
-        gameObject.transform.position = positionalReset.position;
-        if (bIsFastEnemy)
-        {
-            fEnemySpeed = 0.5f;
-        }
         NavMeshAgent navmesh = GetComponent<UnityEngine.AI.NavMeshAgent>();
         navmesh.SetDestination(player.transform.position);
-        navmesh.speed = fEnemySpeed;
+        navmesh.speed = enemySpeed;
+        switch (gM.enemiesDefeated)
+        {
+            case int n when (n < 9):
+                break;
+            case int n when (n < 18):
+                navmesh.speed = enemySpeed * 1.25f;
+                break;
+            case int n when (n < 27):
+                navmesh.speed = enemySpeed * 1.5f;
+                break;
+            case int n when (n < 36):
+                navmesh.speed = enemySpeed * 1.75f;
+                break;
+            case int n when (n < 45):
+                navmesh.speed = enemySpeed * 2f;
+                break;
+            case int n when (n < 54):
+                navmesh.speed = enemySpeed * 2.5f;
+                break;
+            case int n when (n < 63):
+                navmesh.speed = enemySpeed * 3f;
+                break;
+            case int n when (n < 72):
+                navmesh.speed = enemySpeed * 4f;
+                break;
+            case int n when (n < 81):
+                navmesh.speed = enemySpeed * 5f;
+                break;
+            case int n when (n >= 81):
+                navmesh.speed = enemySpeed * 6f;
+                break;
+        }
     }
 
     //Update function to set the speed correctly, checking and setting the speed up correctly after player dies
@@ -34,9 +60,9 @@ public class Enemy : MonoBehaviour
     {
         if (gameObject.GetComponent<NavMeshAgent>() != null)
         {
-            if (gameObject.GetComponent<NavMeshAgent>().speed != fEnemySpeed)
+            if (gameObject.GetComponent<NavMeshAgent>().speed != enemySpeed)
             {
-                gameObject.GetComponent<NavMeshAgent>().speed = fEnemySpeed;
+                gameObject.GetComponent<NavMeshAgent>().speed = enemySpeed;
             }
         }
 
@@ -44,6 +70,8 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(player.transform.position, transform.position) <= 1)
         {
             Debug.Log("PlayerKilled");
+            Destroy(gameObject);
+            gM.Reset();
         }
     }
 
