@@ -17,8 +17,9 @@ public class ShotRenderer : MonoBehaviour
     {
         if (MyLineRenderer == null)
             MyLineRenderer = GetComponent<LineRenderer>();
-
         maxReflectionCount = MyLineRenderer.positionCount - 1;
+
+
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class ShotRenderer : MonoBehaviour
     {
         StartPosition = Vector3.zero;
         StartRotation = transform.forward;
-
+        
         MyLineRenderer.SetPosition(0,StartPosition);
 
         DrawPredictionReflectionPattern(StartPosition, StartRotation, maxReflectionCount);
@@ -34,6 +35,7 @@ public class ShotRenderer : MonoBehaviour
 
     void DrawPredictionReflectionPattern(Vector3 position, Vector3 direction, int reflectionsRemaining)
     {
+
         if (reflectionsRemaining == 0)
         {
             return;
@@ -52,7 +54,7 @@ public class ShotRenderer : MonoBehaviour
             position += direction * maxStepDistance;
         }
 
-        MyLineRenderer.SetPosition((MyLineRenderer.positionCount - reflectionsRemaining), transform.InverseTransformPoint( position));
+        MyLineRenderer.SetPosition((MyLineRenderer.positionCount - reflectionsRemaining),  position - transform.position);
 
         DrawPredictionReflectionPattern(position, direction, reflectionsRemaining - 1);
     }
