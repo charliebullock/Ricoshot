@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothRotation = 2.0f;
     [SerializeField] private GameObject playerChar;
     [SerializeField] private GameObject bulletObject;
-    [SerializeField] private GameObject muzzleWeapon;
+    [SerializeField] private GameObject muzzleWeapon, muzzleWeapon2;
     
     private Bullet bullet;
     private Vector2 mouseLook;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void ShootingInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             GameObject bulletSpawned = Instantiate(bulletObject);
 
@@ -52,6 +52,17 @@ public class PlayerController : MonoBehaviour
             bulletSpawned.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
             Debug.Log("x is" + bulletSpawned.transform.rotation.eulerAngles.x + "y is "+ bulletSpawned.transform.rotation.eulerAngles.y + "z is" + bulletSpawned.transform.rotation.eulerAngles.z);
            bulletSpawned.GetComponent<Bullet>().reflectDirection = bulletSpawned.transform.forward;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject bulletSpawned = Instantiate(bulletObject);
+
+            bulletSpawned.transform.position = muzzleWeapon2.transform.position;
+            Vector3 rotation = bulletSpawned.transform.rotation.eulerAngles;
+            bulletSpawned.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
+            Debug.Log("x is" + bulletSpawned.transform.rotation.eulerAngles.x + "y is " + bulletSpawned.transform.rotation.eulerAngles.y + "z is" + bulletSpawned.transform.rotation.eulerAngles.z);
+            bulletSpawned.GetComponent<Bullet>().reflectDirection = bulletSpawned.transform.forward;
         }
     }
 }

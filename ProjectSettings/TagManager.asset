@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Level
   - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
