@@ -23,19 +23,19 @@ public class Spawner : MonoBehaviour
             switch (gM.enemiesDefeated)
             {
                 case int n when (n < 9):
-                    Instantiate(enemyTypes[0], transform.position, Quaternion.identity);
+                    enemy = Instantiate(enemyTypes[0], transform.position, Quaternion.identity);
                     break;                     
-                case int n when (n < 18):      
-                    Instantiate(enemyTypes[1], transform.position, Quaternion.identity);   
+                case int n when (n < 18):
+                    enemy = Instantiate(enemyTypes[1], transform.position, Quaternion.identity);   
                     break;                     
-                case int n when (n < 27):      
-                    Instantiate(enemyTypes[2], transform.position, Quaternion.identity);
+                case int n when (n < 27):
+                    enemy = Instantiate(enemyTypes[2], transform.position, Quaternion.identity);
                     break;                     
-                case int n when (n < 36):      
-                    Instantiate(enemyTypes[3], transform.position, Quaternion.identity);
+                case int n when (n < 36):
+                    enemy = Instantiate(enemyTypes[3], transform.position, Quaternion.identity);
                     break;                     
-                case int n when (n >= 45):     
-                    Instantiate(enemyTypes[4], transform.position, Quaternion.identity);
+                case int n when (n >= 45):
+                    enemy = Instantiate(enemyTypes[4], transform.position, Quaternion.identity);
                     break;
             }
         }

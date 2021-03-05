@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -36,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void Reset()
     {
+
         enemiesDefeated = 0;
         GenerateLevel(false);
         GenerateLevel(true);
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textSpinning1.text = textSpinning2.text = textSpinning3.text = "Enemies Destroyed" + enemiesDefeated;
+        textSpinning1.text = textSpinning2.text = textSpinning3.text = "Enemies Destroyed: " + enemiesDefeated;
         transform.Rotate(Vector3.back * Time.deltaTime * speed);
     }
 }
