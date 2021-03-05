@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletStats: {fileID: 11400000, guid: d8e1d7d69f1bf5f48a28c441d1ce06a5, type: 2}
   reflectDirection: {x: 0, y: 0, z: 0}
+  Boom: {fileID: 3733567064895695789, guid: 71ab2ebf798ec9043a091a86b59b665c, type: 3}
 --- !u!136 &4379862547177492861
 CapsuleCollider:
   m_ObjectHideFlags: 0

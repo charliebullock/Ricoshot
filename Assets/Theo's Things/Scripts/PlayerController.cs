@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float minVertLook = -45f;
     private float maxVertLook = 45f;
 
+    public float Counter1, Counter2, MaxCount;
+
     private void Start()
     {
         playerChar = GameObject.FindGameObjectWithTag("Player"); //not ideal to look for gameobjects with find but it works as it is
@@ -45,8 +47,14 @@ public class PlayerController : MonoBehaviour
 
     private void ShootingInput()
     {
-        if (Input.GetMouseButtonDown(1))
+
+        if(Counter1 < MaxCount)
         {
+            Counter1 += Time.deltaTime;
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            Counter1 = 0;
             MenuSingleton.instance.PlaySound(Gunshot, transform.position, 0.25f);
 
 
@@ -59,8 +67,13 @@ public class PlayerController : MonoBehaviour
            bulletSpawned.GetComponent<Bullet>().reflectDirection = bulletSpawned.transform.forward;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Counter2 < MaxCount)
         {
+            Counter2 += Time.deltaTime;
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Counter2 = 0;
             MenuSingleton.instance.PlaySound(Gunshot, transform.position, 0.25f);
 
             GameObject bulletSpawned = Instantiate(bulletObject);

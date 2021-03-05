@@ -15,11 +15,14 @@ public class Bullet : MonoBehaviour
    private float speedBullet;
    private int reflectionsBullet;
 
+    [SerializeField] GameObject Boom;
+
    private void Start()
    {
       rb = GetComponent<Rigidbody>();
       reflectionsBullet = bulletStats.numberOfReflections;
       speedBullet = bulletStats.speed;
+        Destroy(gameObject, 10f);
    }
 
    private void Update()
@@ -46,6 +49,9 @@ public class Bullet : MonoBehaviour
          reflectDirection = Vector3.Reflect(reflectDirection, other.contacts[0].normal);
          Debug.Log(reflectDirection);
       }
+
+        GameObject explosion = Instantiate(Boom, transform);
+        Destroy(explosion, 2f);
    }
 
    private void OnDrawGizmos()
