@@ -40,18 +40,6 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        //if (TurretGameManager.iHealth <= 0)
-        //{
-        //    if (bIsFastEnemy)
-        //    {
-        //        fEnemySpeed = 0.5f;
-        //    }
-        //    else
-        //    {
-        //        fEnemySpeed = 0.25f;
-        //    }
-        //}
-
         //If this enemy is close to the player then deduct health off them
         if (Vector3.Distance(player.transform.position, transform.position) <= 1)
         {
