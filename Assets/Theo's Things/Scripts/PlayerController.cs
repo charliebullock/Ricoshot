@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject playerChar;
     [SerializeField] private GameObject bulletObject;
     [SerializeField] private GameObject muzzleWeapon, muzzleWeapon2;
+
+    [SerializeField] AudioClip Gunshot;
     
     private Bullet bullet;
     private Vector2 mouseLook;
@@ -45,6 +47,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            MenuSingleton.instance.PlaySound(Gunshot, transform.position, 0.25f);
+
+
             GameObject bulletSpawned = Instantiate(bulletObject);
 
             bulletSpawned.transform.position = muzzleWeapon.transform.position;
@@ -56,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            MenuSingleton.instance.PlaySound(Gunshot, transform.position, 0.25f);
+
             GameObject bulletSpawned = Instantiate(bulletObject);
 
             bulletSpawned.transform.position = muzzleWeapon2.transform.position;
