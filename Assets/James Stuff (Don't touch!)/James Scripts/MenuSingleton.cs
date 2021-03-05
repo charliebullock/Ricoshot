@@ -43,7 +43,6 @@ public class MenuSingleton : MonoBehaviour
     public void PlaySound(AudioClip PlayMe, Vector3 AtHere, float PitchVariation)
     {
         GameObject MyObject = new GameObject(PlayMe.name);
-
         MyObject.transform.position = AtHere;
         AudioSource MyAudio = MyObject.AddComponent<AudioSource>();
 

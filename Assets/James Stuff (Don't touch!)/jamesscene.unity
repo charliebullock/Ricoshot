@@ -771,6 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064486390}
   - component: {fileID: 1064486389}
+  - component: {fileID: 1064486391}
   m_Layer: 0
   m_Name: LineVisualiser
   m_TagString: Untagged
@@ -820,6 +821,9 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 5, z: 0}
+  - {x: 0, y: 5, z: 0}
+  - {x: 0, y: 5, z: 0}
   - {x: 0, y: 5, z: 0}
   m_Parameters:
     serializedVersion: 3
@@ -890,6 +894,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1064486391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064486388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4542ecd1784d6c141808eb3dae663491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyLineRenderer: {fileID: 0}
+  maxReflectionCount: 0
+  maxStepDistance: 200
 --- !u!1 &1534593239
 GameObject:
   m_ObjectHideFlags: 0
