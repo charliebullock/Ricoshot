@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
 
    private void OnDrawGizmos()
    {
-      Handles.color = Color.blue;
-      Handles.ArrowHandleCap(0,transform.position + transform.forward *0.25f, transform.rotation, 0.25f, EventType.Repaint);
+//      Handles.color = Color.blue;
+  //    Handles.ArrowHandleCap(0,transform.position + transform.forward *0.25f, transform.rotation, 0.25f, EventType.Repaint);
    }
 }
